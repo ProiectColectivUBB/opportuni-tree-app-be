@@ -19,6 +19,8 @@ public class Organisation extends User implements Serializable {
     @Column(name = "name", nullable = false, length = 255)
     private String name;
 
+
+
     @Column(name = "creation_date")
     @Convert(converter = LocalDateConverter.class)
     private LocalDate creationDate;
