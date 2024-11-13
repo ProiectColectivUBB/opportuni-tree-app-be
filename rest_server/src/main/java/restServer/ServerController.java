@@ -2,17 +2,21 @@ package restServer;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.util.List;
 
 @CrossOrigin
 @RestController
-@RequestMapping("/opp")
-public class ServerController {
+@RequestMapping("/opptree")
+public class ServerController
+{
     @RequestMapping(method = RequestMethod.GET, value = "/login")
-    public ResponseEntity<?> login(){
+    public ResponseEntity<?> login(
+            @RequestParam("username") String username,
+            @RequestParam("password") String password)
+    {
         System.out.println("login called");
         try {
             return new ResponseEntity<>(HttpStatus.OK);
@@ -23,7 +27,8 @@ public class ServerController {
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/register")
-    public ResponseEntity<?> register(){
+    public ResponseEntity<?> register()
+    {
         System.out.println("register called");
         try {
             return new ResponseEntity<>(HttpStatus.OK);
@@ -33,25 +38,27 @@ public class ServerController {
         }
     }
 
-    @RequestMapping(method = RequestMethod.GET, value = "/opportunities")
-    public ResponseEntity<?> get_oportunities(){
-        System.out.println("get_oportunities called");
-        try {
-            return new ResponseEntity<>(HttpStatus.OK);
-        }
-        catch (Exception e) {
-            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-    }
+//    @RequestMapping(method = RequestMethod.GET, value = "/opportunities")
+//    public ResponseEntity<List<OpportunityRespDTO>> getAllOpportunities()
+//    {
+//        List<OpportunityRespDTO> opportunities = opportunityService.getAllOpportunities();
+//        return ResponseEntity.ok(opportunities);
+//    }
 
     @RequestMapping(method = RequestMethod.POST, value = "/opportunities")
-    public ResponseEntity<?> add_oportunities(){
-        System.out.println("add_oportunities called");
-        try {
-            return new ResponseEntity<>(HttpStatus.OK);
-        }
-        catch (Exception e) {
-            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
-        }
+    public ResponseEntity<String> addOpportunity(
+            @RequestParam("name") String name,
+            @RequestParam("type") String type,
+            @RequestParam("city") String city,
+            @RequestParam("country") String country,
+            @RequestParam("description") String description,
+            @RequestParam("price") Float price,
+            @RequestParam("noParticipants") Integer noParticipants,
+            @RequestParam("organisationId") Integer organisationId,
+            @RequestParam("photos") List<MultipartFile> photos)
+    {
+        // OpportunityReqDTO opportunityDTO = new OpportunityReqDTO(name, type, city, country, description, price, noParticipants, organisationId, photos);
+        // opportunityService.addOpportunity(opportunityDTO);
+        return new ResponseEntity<>("Opportunity added successfully", HttpStatus.CREATED);
     }
 }
