@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2873f4f9-e56d-4deb-a5de-6bd098d04ad6" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-    </list>
+    <list default="true" id="2873f4f9-e56d-4deb-a5de-6bd098d04ad6" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -44,9 +42,9 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "user__participant__CRUD",
+    "git-widget-placeholder": "#9 on user__participant__CRUD1",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/Facultate/opportuni-tree-app-be/Organisation",
+    "last_opened_file_path": "D:/Facultate/opportuni-tree-app-be/backend",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -73,6 +71,7 @@
       <updated>1731414913157</updated>
       <workItem from="1731414914288" duration="900000" />
       <workItem from="1731415839671" duration="18000" />
+      <workItem from="1731530878980" duration="10000" />
     </task>
     <servers />
   </component>
