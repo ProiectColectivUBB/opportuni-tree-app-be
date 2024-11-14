@@ -6,7 +6,7 @@ plugins {
 
 group = 'org.example'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '17'
+
 
 repositories {
     mavenCentral()
@@ -16,18 +16,26 @@ dependencies {
 
     implementation("org.xerial:sqlite-jdbc:3.32.3.2")
     implementation("com.github.gwenn:sqlite-dialect:0.1.0")
+
     implementation group: 'org.slf4j', name: 'slf4j-api', version: '1.7.32'
     implementation group: 'org.slf4j', name: 'slf4j-log4j12', version: '1.7.32'
+
     implementation 'org.hibernate:hibernate-core:5.6.4.Final'
     implementation 'org.hibernate:hibernate-entitymanager:5.6.4.Final'
     implementation 'org.hibernate:hibernate-java8:5.6.4.Final'
     implementation 'org.projectlombok:lombok:1.18.30'
     implementation 'javax.xml.bind:jaxb-api:2.3.1'
 
+
     // JAXB Runtime
     implementation 'org.glassfish.jaxb:jaxb-runtime:2.3.3'
     //implementation group: 'com.zsoltfabok', name: 'sqlite-dialect', version: '1.0'
 }
+
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    // JAXB Runtime
+    implementation 'org.glassfish.jaxb:jaxb-runtime:2.3.3'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'}
 
 test {
     useJUnitPlatform()
