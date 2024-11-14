@@ -30,7 +30,6 @@ dependencies {
     // JAXB Runtime
     implementation 'org.glassfish.jaxb:jaxb-runtime:2.3.3'
     //implementation group: 'com.zsoltfabok', name: 'sqlite-dialect', version: '1.0'
-}
 
     implementation 'org.springframework.boot:spring-boot-starter-web'
     // JAXB Runtime
