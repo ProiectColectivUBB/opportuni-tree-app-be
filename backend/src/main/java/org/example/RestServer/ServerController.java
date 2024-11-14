@@ -74,24 +74,27 @@ public class ServerController
         }
     }
 
-    @PostMapping("/register/participant")
-    public ResponseEntity<?> register_participant(@RequestBody Map<String, String> participantData) {
+    @RequestMapping(method = RequestMethod.POST, value = "/register/participant")
+    public ResponseEntity<?> registerParticipant(@RequestBody Participant participant) {
         System.out.println("register participant called");
         try {
-            String username = participantData.get("username");
-            String password = participantData.get("password");
-            String about = participantData.get("about");
-            String phone = participantData.get("phone");
-            String first_name = participantData.get("first_name");
-            String last_name = participantData.get("last_name");
-            String birthDateStr = participantData.get("birthDateStr");
+            System.out.println(participant);
+            Optional<Participant> savedPart = service.registerParticipant(
+                    participant.getUsername(),
+                    participant.getPassword(),
+                    participant.getAbout(),
+                    participant.getPhone(),
+                    participant.getFirstName(),
+                    participant.getLastName(),
+                    participant.getBirthDate()
+            );
 
-            Optional<Participant> saved_part = service.registerParticipant(username, password, about, phone, first_name, last_name, birthDateStr);
-            if (saved_part.isPresent()) {
+            if (savedPart.isPresent()) {
                 return new ResponseEntity<>(HttpStatus.OK);
             }
             return new ResponseEntity<>(HttpStatus.NOT_ACCEPTABLE);
         } catch (Exception e) {
+            e.printStackTrace();
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
