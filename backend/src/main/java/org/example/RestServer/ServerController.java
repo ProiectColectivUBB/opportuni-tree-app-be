@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
+import java.util.Optional;
 
 @CrossOrigin
 @RestController
@@ -26,8 +27,15 @@ public class ServerController
     {
         System.out.println("login called");
         try {
-            boolean login_succes = true; // call function
-            return new ResponseEntity<>(login_succes, HttpStatus.OK);
+            Optional<?> login_result = service.login(username, password);
+            if (login_result.isPresent())
+            {
+                return new ResponseEntity<>(login_result, HttpStatus.OK);
+            }
+            else
+            {
+                return new ResponseEntity<>(HttpStatus.NOT_ACCEPTABLE);
+            }
         }
         catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
