@@ -73,11 +73,6 @@ public class Service {
         return organisationRepo.delete(id);
     }
 
-    public Optional<Organisation> loginOrganisation(String username, String password) {
-        Optional<Organisation> orgOpt = organisationRepo.findByUsername(username);
-        return orgOpt.filter(organisation -> PasswordHasher.checkPassword(password, organisation.getPassword()));
-    }
-
     public Optional<Organisation> registerOrganisation(String username, String password, String about, String phone,
                                                        String name, String creationDateStr, String website) {
 
@@ -133,11 +128,6 @@ public class Service {
 
         Participant savedParticipant = participantRepo.save(newParticipant);
         return Optional.ofNullable(savedParticipant);
-    }
-
-    public Optional<Participant> loginParticipant(String username, String password) {
-        Optional<Participant> participantOpt = participantRepo.findByUsername(username);
-        return participantOpt.filter(participant -> PasswordHasher.checkPassword(password, participant.getPassword()));
     }
 
     public List<Participant> findAllParticipants() {
