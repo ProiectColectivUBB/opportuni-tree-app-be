@@ -67,7 +67,7 @@ public class ServerController
         }
     }
 
-    @RequestMapping(method = RequestMethod.GET, value = "/register/organisation")
+    @RequestMapping(method = RequestMethod.GET, value = "/register/participant")
     public ResponseEntity<?> register_participant(@RequestParam("username") String username,
                                                    @RequestParam("password") String password,
                                                    @RequestParam("about") String about,
