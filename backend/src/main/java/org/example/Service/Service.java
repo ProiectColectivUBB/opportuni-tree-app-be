@@ -8,7 +8,6 @@ import org.example.Persistence.ParticipantRepository;
 import org.example.Utils.PasswordHasher;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
@@ -53,11 +52,13 @@ public class Service {
         Optional<Organisation> orgOpt = organisationRepo.findByUsername(username);
         if (orgOpt.isPresent()) {
             if (PasswordHasher.checkPassword(password, orgOpt.get().getPassword())) {
+                orgOpt.get().setPassword(null);
                 return orgOpt;
             }
         } else {
             Optional<Participant> partOpt = participantRepo.findByUsername(username);
             if (partOpt.isPresent() && PasswordHasher.checkPassword(password, partOpt.get().getPassword())) {
+                partOpt.get().setPassword(null);
                 return partOpt;
             }
         }
