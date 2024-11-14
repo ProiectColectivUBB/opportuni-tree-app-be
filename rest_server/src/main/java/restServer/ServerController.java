@@ -19,7 +19,8 @@ public class ServerController
     {
         System.out.println("login called");
         try {
-            return new ResponseEntity<>(HttpStatus.OK);
+            boolean login_succes = true; // call function
+            return new ResponseEntity<>(login_succes, HttpStatus.OK);
         }
         catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
@@ -59,6 +60,6 @@ public class ServerController
     {
         // OpportunityReqDTO opportunityDTO = new OpportunityReqDTO(name, type, city, country, description, price, noParticipants, organisationId, photos);
         // opportunityService.addOpportunity(opportunityDTO);
-        return new ResponseEntity<>("Opportunity added successfully", HttpStatus.CREATED);
+        return new ResponseEntity<>(HttpStatus.CREATED);
     }
 }
