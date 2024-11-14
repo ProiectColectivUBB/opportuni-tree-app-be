@@ -2,7 +2,7 @@
     <session-factory>
         <!-- JDBC Database connection settings -->
         <property name="hibernate.connection.driver_class">org.sqlite.JDBC</property>
-        <property name="hibernate.connection.url">jdbc:sqlite:C:\\Users\\Cosmin\\Downloads\\database (1).db</property>
+        <property name="hibernate.connection.url">jdbc:sqlite:../db/database.db</property>
         <property name="hibernate.connection.username"/>
         <property name="hibernate.connection.password"/>
 
